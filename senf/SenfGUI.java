@@ -45,6 +45,8 @@ import java.io.IOException;
 import java.io.FilenameFilter;
 import java.io.FileWriter;
 
+import java.nio.file.Paths;
+
 import java.util.Vector;
 
 public class SenfGUI
@@ -1114,7 +1116,7 @@ public class SenfGUI
 		int returnVal = logFileChooser.showOpenDialog(null);
 		if(returnVal == JFileChooser.APPROVE_OPTION) 
 		{
-			logFilePathAndName = logFileChooser.getCurrentDirectory().getPath() + System.getProperty( "file.separator" )  + logFileChooser.getSelectedFile().getName();
+			logFilePathAndName = Paths.get(logFileChooser.getCurrentDirectory().getPath(), logFileChooser.getSelectedFile().getName()).toString();
 			logFileNameText.setText( logFilePathAndName );
 		}
 	}

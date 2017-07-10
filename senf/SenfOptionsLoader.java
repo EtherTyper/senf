@@ -16,6 +16,7 @@ package senf;
 
 //Import Java Packages
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.text.ParseException;
 
@@ -58,7 +59,7 @@ public class SenfOptionsLoader {
 				if((in = filename.indexOf(".class")) > 0) {
 					seedloader = new FileLoader(".");
 				} else if((in = filename.indexOf(".jar")) > 0) {
-					seedloader = new FileLoader("seeds" + File.separator + plugins[i].getName());
+					seedloader = new FileLoader(Paths.get("seeds", plugins[i].getName()).toString());
 				}
 
 				String classname = filename.substring(0, in);

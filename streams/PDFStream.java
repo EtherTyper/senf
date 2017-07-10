@@ -37,6 +37,8 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
 
+import java.nio.file.Paths;
+
 /*
  * This class is used to obtain an InputStream from a PDF
  * style file.  This class relies on an external library,
@@ -134,7 +136,7 @@ public class PDFStream implements SenfStream
 			try
 			{	
 				//This loads all the libraries (JAR Files) in the "libs" folder into the classpath in order to parse the PDF File.	
-				File[] libs = new File( System.getProperty( "user.dir" ) + System.getProperty( "file.separator" ) + "libs" ).listFiles(
+				File[] libs = Paths.get( System.getProperty( "user.dir" ), "libs" ).toFile().listFiles(
 					//This limits it to only JAR Files
 					new FilenameFilter()
 					{

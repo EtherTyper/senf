@@ -18,6 +18,7 @@ package senf;
 //Import Java Packages
 import java.io.File;
 import java.io.FilenameFilter;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 /*
@@ -84,7 +85,7 @@ public class SenfParserManager
 				}
 				else if( (in = filename.indexOf(".jar")) > 0 )
 				{
-					parserloader = new FileLoader( "parsers" + File.separator + parsers[i].getName() );
+					parserloader = new FileLoader( Paths.get( "parsers", parsers[i].getName() ).toString() );
 				}
 
 				String classname = filename.substring( 0, in );

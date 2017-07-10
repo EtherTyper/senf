@@ -30,6 +30,8 @@ import java.io.InputStream;
 
 import java.net.URI;
 
+import java.nio.file.Paths;
+
 //This class is used to create a SenfStream from an InputStream
 public class SenfInputStream implements SenfStream
 {
@@ -77,10 +79,7 @@ public class SenfInputStream implements SenfStream
 
 	public URI getURI()
 	{
-		try {
-			return new URI( path + System.getProperty( "file.separator" ) + name );
-		} catch( java.net.URISyntaxException use ) { };
-		return null;
+		return Paths.get( path, name ).toUri();
 	}
 
 	public String getPath()
